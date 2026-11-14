@@ -192,7 +192,11 @@ section {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    transition: transform .2s, background .2s, border-color .2s;
+    transition: transform .2s, background .2s, border-color .2s, box-shadow .2s;
+
+    /* efeito de vidro: desfoca o que está atrás do botão */
+    -webkit-backdrop-filter: blur(14px) saturate(170%);
+    backdrop-filter: blur(14px) saturate(170%);
 }
 
 .b:hover {
@@ -205,28 +209,38 @@ section {
     flex: none;
 }
 
-.b1 {                                 /* amarelo */
-    background: var(--ac);
+.b1 {                                 /* amarelo, vidro colorido */
+    background: linear-gradient(180deg, rgba(255, 238, 170, .98), rgba(249, 220, 124, .93));
     color: #1a1405;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .6),      /* brilho em cima */
+        inset 0 -1px 0 rgba(120, 90, 0, .18),       /* sombra embaixo */
+        0 8px 24px rgba(249, 220, 124, .18);        /* luz amarela em volta */
 }
 
 .b1:hover {
-    background: var(--ac2);
+    background: linear-gradient(180deg, rgba(255, 245, 200, .99), rgba(255, 233, 163, .95));
 }
 
-.b2 {                                 /* contorno */
-    background: transparent;
+.b2 {                                 /* vidro transparente */
+    background: rgba(255, 240, 200, .06);
     color: var(--tx);
-    border: 1px solid var(--line);
+    border: 1px solid rgba(255, 240, 200, .16);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12);
 }
 
 .b2:hover {
+    background: rgba(255, 240, 200, .1);
     border-color: rgba(255, 240, 200, .3);
 }
 
-.bw {                                 /* verde do WhatsApp */
-    background: var(--wa);
+.bw {                                 /* verde do WhatsApp, vidro colorido */
+    background: linear-gradient(180deg, rgba(70, 230, 130, .98), rgba(37, 211, 102, .92));
     color: #05210f;
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .5),
+        inset 0 -1px 0 rgba(0, 60, 20, .2),
+        0 8px 24px rgba(37, 211, 102, .18);
 }
 
 /* grupo de botões */
@@ -247,10 +261,13 @@ section {
     position: sticky;
     top: 0;
     z-index: 20;
-    background: rgba(14, 13, 11, .78);
-    -webkit-backdrop-filter: blur(14px);
-    backdrop-filter: blur(14px);
-    border-bottom: 1px solid var(--line);
+
+    /* barra de vidro: deixa ver o site passando por trás, desfocado */
+    background: linear-gradient(180deg, rgba(30, 27, 20, .62), rgba(14, 13, 11, .52));
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 240, 200, .12);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .3), 0 8px 30px rgba(0, 0, 0, .25);
 }
 
 .top .w {
@@ -959,10 +976,17 @@ footer a:hover {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: var(--wa);
     color: #05210f;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
     transition: transform .25s, opacity .25s;
+
+    /* vidro verde: o site aparece desfocado por trás */
+    background: linear-gradient(180deg, rgba(70, 230, 130, .85), rgba(37, 211, 102, .7));
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, .25);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, .55),
+        0 10px 30px rgba(0, 0, 0, .4);
 }
 
 .fab:hover {
