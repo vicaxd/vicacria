@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>vicacria · Portfólio Inteligente</title>
-<meta name="description" content="Seu link da bio vira um site de verdade: seu trabalho, seus serviços e um botão direto pro seu WhatsApp. A partir de R$ 197.">
+<title>vicacria · Sites e sistemas sob medida</title>
+<meta name="description" content="Sites e sistemas sob medida para pequenos negócios: do link da bio ao agendamento online ligado ao WhatsApp e ao Google Agenda. Orçamento pelo WhatsApp.">
 <meta name="theme-color" content="#0e0d0b">
 <link rel="canonical" href="https://vicacria.com.br/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="vicacria">
-<meta property="og:title" content="Portfólio Inteligente · vicacria">
-<meta property="og:description" content="Seu link da bio vira um site de verdade, feito sob medida.">
+<meta property="og:title" content="Sites e sistemas sob medida · vicacria">
+<meta property="og:description" content="Do link da bio à agenda cheia, tudo num lugar só.">
 <meta property="og:url" content="https://vicacria.com.br/">
 <meta property="og:image" content="https://vicacria.com.br/preview.jpg">
 <meta property="og:image:width" content="1200">
@@ -28,7 +28,7 @@ body{margin:0;background:var(--bg);color:var(--tx);font:400 17px/1.55 "Outfit",s
 a{color:inherit;text-decoration:none}
 img{display:block;max-width:100%;height:auto}
 h1,h2,h3,p{margin:0}
-h1,h2,h3{letter-spacing:-.03em;line-height:1.02;font-weight:600}
+h1,h2,h3{letter-spacing:-.03em;line-height:1.02;font-weight:600;text-wrap:balance}
 :focus-visible{outline:2px solid var(--ac);outline-offset:3px;border-radius:8px}
 .w{max-width:1120px;margin:0 auto;padding:0 20px}
 section{padding:96px 0;content-visibility:auto;contain-intrinsic-size:auto 800px}
@@ -105,7 +105,19 @@ section{padding:64px 0}
 .st h3{font-size:24px;margin-bottom:8px}
 .st p{color:var(--mu);font-size:16px}
 
-/* preços */
+/* sistemas */
+.sys{display:grid;gap:44px;margin-top:48px;align-items:center}
+@media(min-width:900px){.sys{grid-template-columns:1fr 1.15fr;gap:56px}}
+.sys small{color:var(--ac);font-size:14px}
+.sys h3{font-size:clamp(26px,3.4vw,34px);margin:6px 0 0}
+.fl{list-style:none;padding:0;margin:22px 0 28px;display:grid;gap:12px;color:var(--mu);font-size:16px}
+.sys .fine{margin-top:16px}
+.vis{position:relative;padding-bottom:14%}
+.vis img{border:1px solid var(--line);box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.vis .pc{width:88%;border-radius:14px}
+.vis .cel{position:absolute;right:0;bottom:0;width:34%;border-radius:22px;border:5px solid #050505}
+
+/* o que inclui */
 .alt{background:var(--s1);border-block:1px solid var(--line)}
 .plans{display:grid;gap:16px;margin-top:48px}
 @media(min-width:820px){.plans{grid-template-columns:1fr 1fr}}
@@ -114,11 +126,10 @@ section{padding:64px 0}
 .pl .badge{position:absolute;top:-12px;right:24px;background:var(--ac);color:#1a1405;font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px}
 .pl .k{color:var(--mu);font-size:14px}
 .pl h3{font-size:26px;margin:6px 0 18px}
-.pr{font-size:48px;font-weight:600;letter-spacing:-.04em}
-.pr span{font-size:16px;color:var(--mu);font-weight:400;letter-spacing:0;margin-left:6px}
+.pl .ds{color:var(--mu);font-size:16px;margin-top:-8px}
 .pl ul{list-style:none;padding:0;margin:22px 0 28px;display:grid;gap:10px;color:var(--mu)}
-.pl li{display:flex;gap:10px}
-.pl li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:rgba(249,220,124,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f9dc7c' stroke-width='3'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/12px no-repeat}
+.pl li,.fl li{display:flex;gap:10px}
+.pl li::before,.fl li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:rgba(249,220,124,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f9dc7c' stroke-width='3'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center/12px no-repeat}
 .pl .b{width:100%}
 .extra{display:grid;gap:16px;margin-top:16px}
 @media(min-width:820px){.extra{grid-template-columns:1.4fr 1fr}}
@@ -154,7 +165,7 @@ section{padding:64px 0}
 .res .rec{margin:4px 0 20px;padding:20px;border-radius:18px;background:rgba(249,220,124,.08);border:1px solid rgba(249,220,124,.3)}
 .res .rec small{color:var(--ac);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
 .res .rec strong{display:block;font-size:20px;margin:4px 0}
-.res .rec .pr{font-size:40px}
+.res .rec p{color:var(--mu);font-size:15px}
 .res .b{width:100%}
 .fade{animation:f .35s ease both}
 @keyframes f{from{opacity:0;transform:translateY(8px)}}
@@ -179,6 +190,8 @@ footer a:hover{color:var(--tx)}
 /* whatsapp flutuante */
 .fab{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--wa);color:#05210f;box-shadow:0 10px 30px rgba(0,0,0,.4);transition:transform .2s}
 .fab:hover{transform:scale(1.06)}
+.fab{transition:transform .25s,opacity .25s}
+.fab.off{opacity:0;transform:translateY(16px) scale(.9);pointer-events:none}
 .fab svg{width:28px;height:28px}
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
@@ -189,26 +202,26 @@ footer a:hover{color:var(--tx)}
 
 <header class="top"><div class="w">
 <a class="logo" href="#" aria-label="vicacria, início"><svg aria-hidden="true"><use href="#lg"/></svg><span>vica<i>cria</i></span></a>
-<nav class="nav" aria-label="Seções"><a href="#trabalhos">Trabalhos</a><a href="#como">Como funciona</a><a href="#valores">Valores</a><a href="#sobre">Sobre</a></nav>
-<a class="b b1" href="#quiz">Começar</a>
+<nav class="nav" aria-label="Seções"><a href="#trabalhos">Trabalhos</a><a href="#sistemas">Sistemas</a><a href="#como">Como funciona</a><a href="#inclui">O que inclui</a><a href="#sobre">Sobre</a></nav>
+<a class="b b1" href="#quiz">Orçamento</a>
 </div></header>
 
 <main>
 <section class="hero"><div class="w">
-<span class="ey">Portfólio Inteligente</span>
-<h1>Seu link da bio vira um <em>site de verdade.</em></h1>
-<p class="lead">Seu trabalho, seus serviços e um botão direto pro seu WhatsApp. Num link só, feito sob medida pra você.</p>
-<div class="cta"><a class="b b1" href="#quiz">Descobrir minha opção →</a><a class="b b2" href="#trabalhos">Ver trabalhos</a></div>
+<span class="ey">Sites e sistemas sob medida</span>
+<h1>Do link da bio à agenda cheia, <em>tudo num lugar&nbsp;só.</em></h1>
+<p class="lead">Um site com a cara do seu negócio e, quando precisar, um sistema que recebe pedidos e organiza o atendimento junto com o seu WhatsApp e o Google Agenda.</p>
+<div class="cta"><a class="b b1" href="#quiz">Montar meu orçamento →</a><a class="b b2" href="#trabalhos">Ver trabalhos</a></div>
 <div class="facts">
-<div><span>A partir de</span><b>R$ 197</b></div>
-<div><span>Suporte grátis</span><b>60 dias</b></div>
+<div><span>Orçamento pelo</span><b>WhatsApp</b></div>
+<div><span>Ajustes inclusos</span><b>60 dias</b></div>
 <div><span>Parcele sem juros</span><b>em 6x</b></div>
 </div>
 </div></section>
 
 <section id="trabalhos"><div class="w">
 <span class="ey">Antes e depois</span>
-<h2 class="h2">Do link comum ao site com a sua cara.</h2>
+<h2 class="h2">Do link comum ao site com a cara do negócio.</h2>
 <div class="grid3">
 <a class="card" href="https://vicaxd.github.io/utopia-art/" target="_blank" rel="noopener">
 <div class="shot"><span class="tag">ANTES</span><img src="img/antes-utopia-art.webp" alt="Perfil @amanda.utopiart antes do site" width="840" height="373" loading="lazy" decoding="async"></div>
@@ -222,46 +235,58 @@ footer a:hover{color:var(--tx)}
 </div>
 </div></section>
 
-<section id="como"><div class="w">
-<span class="ey">Como funciona</span>
-<h2 class="h2">Três passos e seu link tá no ar.</h2>
-<div class="steps">
-<div class="st"><h3>Você me manda</h3><p>Fotos, textos e cores. Ou um PDF pronto do jeito que você quer.</p></div>
-<div class="st"><h3>Eu monto</h3><p>Um site feito pro celular, rápido e com a sua identidade.</p></div>
-<div class="st"><h3>Vai pra bio</h3><p>Quem chega entende o que você faz e fala com você em um toque.</p></div>
+<section id="sistemas" class="alt"><div class="w">
+<span class="ey">Sistemas sob medida</span>
+<h2 class="h2">Menos tempo respondendo <span class="ac">“tem horário?”</span></h2>
+<p class="lead">Eu crio a ferramenta que o seu negócio precisa e conecto com o que você já usa: WhatsApp, Google Agenda e planilha.</p>
+<div class="sys">
+<div><small>Studio Amanda Rodrigues · cílios e sobrancelhas</small>
+<h3>Agendamento online com painel próprio</h3>
+<ul class="fl"><li>A cliente escolhe o procedimento, o dia e o horário, vendo só os horários livres</li><li>O pedido chega pronto no WhatsApp da Amanda</li><li>Ela confirma ou sugere outro horário pelo painel, direto do celular</li><li>Tudo entra no Google Agenda, com uma cor pra cada procedimento</li><li>A cliente acompanha o pedido com o celular e um código</li><li>Painel protegido por senha e barreira contra pedidos falsos</li></ul>
+<a class="b b1" data-wa="Oi, Vica! Vi o sistema de agendamento no teu site e quero um orçamento de um sistema pro meu negócio." href="https://wa.me/5551992814761" target="_blank" rel="noopener">Conversar sobre o meu sistema</a>
+<p class="fine">O agendamento é um exemplo. Pedidos, cadastro de clientes e lista de espera também podem virar sistema. Me conta como o seu negócio funciona.</p></div>
+<div class="vis"><img class="pc" src="img/sistema-agenda.webp" alt="Painel da Amanda com a agenda da semana, cada procedimento numa cor" width="1400" height="831" loading="lazy" decoding="async"><img class="cel" src="img/sistema-horarios.webp" alt="Tela da cliente escolhendo dia e horário pelo celular" width="600" height="924" loading="lazy" decoding="async"></div>
 </div>
 </div></section>
 
-<section id="valores" class="alt"><div class="w">
-<span class="ey">Valores</span>
-<h2 class="h2">Escolha como prefere começar.</h2>
+<section id="como"><div class="w">
+<span class="ey">Como funciona</span>
+<h2 class="h2">Três passos até estar no ar.</h2>
+<div class="steps">
+<div class="st"><h3>Você me conta</h3><p>Como o seu negócio funciona e onde o atendimento trava. Pode mandar fotos, textos ou um PDF pronto.</p></div>
+<div class="st"><h3>Eu monto</h3><p>O site e, se fizer sentido, o sistema. Você vê tudo funcionando e aprova antes de publicar.</p></div>
+<div class="st"><h3>Vai pro ar</h3><p>O link vai pra sua bio e eu te mostro como usar. Ajustes nos primeiros 60 dias estão inclusos.</p></div>
+</div>
+</div></section>
+
+<section id="inclui" class="alt"><div class="w">
+<span class="ey">O que inclui</span>
+<h2 class="h2">Escolha por onde começar.</h2>
 <div class="plans">
-<div class="pl"><span class="k">Opção 1</span><h3>Você manda um PDF pronto</h3><div class="pr">R$ 197</div>
-<ul><li>Textos, fotos e cores do seu jeito</li><li>Os botões e links que você quiser</li><li>Botões que acompanham a rolagem, se quiser</li><li>Troca de fotos sem custo</li></ul>
-<a class="b b2" data-wa="Oi, Vica! Quero a Opção 1 (PDF pronto, R$ 197)." href="https://wa.me/5551992814761" target="_blank" rel="noopener">Quero essa</a></div>
-<div class="pl hi"><span class="badge">Mais escolhida</span><span class="k">Opção 2</span><h3>Eu monto tudo pra você</h3><div class="pr">R$ 247</div>
-<ul><li>Você manda fotos e ideias soltas</li><li>Eu organizo textos e visual</li><li>Cores do seu jeito, ou eu sugiro</li><li>Botões e links incluídos</li></ul>
-<a class="b b1" data-wa="Oi, Vica! Quero a Opção 2 (você monta tudo, R$ 247)." href="https://wa.me/5551992814761" target="_blank" rel="noopener">Quero essa</a></div>
+<div class="pl"><span class="k">Site</span><h3>Portfólio Inteligente</h3><p class="ds">Seu link da bio vira um site de verdade.</p>
+<ul><li>Seu trabalho, seus serviços e o contato num link só</li><li>Você manda um PDF pronto, ou eu monto tudo a partir das suas fotos e ideias</li><li>Feito pro celular, rápido e com a sua identidade</li><li>Botão direto pro seu WhatsApp</li></ul>
+<a class="b b2" data-wa="Oi, Vica! Quero um orçamento do Portfólio Inteligente." href="https://wa.me/5551992814761" target="_blank" rel="noopener">Pedir orçamento</a></div>
+<div class="pl hi"><span class="badge">Novo</span><span class="k">Site + sistema</span><h3>Sistema sob medida</h3><p class="ds">Pra quem precisa organizar o dia a dia.</p>
+<ul><li>Tudo do Portfólio Inteligente</li><li>Agendamento online, ou a ferramenta que o seu negócio precisar</li><li>Painel só seu, protegido por senha</li><li>Ligação com o seu WhatsApp e o Google Agenda</li></ul>
+<a class="b b1" data-wa="Oi, Vica! Quero um orçamento de um Sistema sob medida." href="https://wa.me/5551992814761" target="_blank" rel="noopener">Pedir orçamento</a></div>
 </div>
 <div class="extra">
 <div class="box"><h3>Suporte</h3><div class="rows">
 <div>Primeiros 60 dias<b>Grátis</b></div>
-<div>Cada mudança depois disso<b>R$ 47</b></div>
-<div>Suporte de 6 meses<b>R$ 297</b></div>
-<div>Suporte de 1 ano<b>R$ 357</b></div>
-<div>Renovar 6 meses / 1 ano<b>R$ 57 / R$ 97</b></div>
+<div>Mudanças depois disso<b>Sob consulta</b></div>
+<div>Planos de 6 meses e 1 ano<b>Sob consulta</b></div>
 </div></div>
 <div class="box"><h3>Seu endereço</h3><div class="dom">
-<div><small>Link padrão · grátis</small><code>vicaxd.github.io/seu-nome</code></div>
-<div class="y"><small>Domínio próprio · R$ 40/ano</small><code>www.seunome.com.br</code></div>
-</div><p class="fine">O domínio é opcional e pago à parte. Tudo pode ser parcelado em até 6x sem juros.</p></div>
+<div><small>Link padrão · incluso</small><code>vicaxd.github.io/seu-nome</code></div>
+<div class="y"><small>Domínio próprio · opcional</small><code>www.seunome.com.br</code></div>
+</div><p class="fine">O domínio próprio é pago à parte. Tudo pode ser parcelado em até 6x sem juros, e os valores eu te passo pelo WhatsApp.</p></div>
 </div>
 </div></section>
 
 <section id="quiz"><div class="w qz">
-<div><span class="ey">4 perguntas</span>
-<h2 class="h2">Descubra qual opção é a sua.</h2>
-<p class="lead">Leva 30 segundos. No final, você me chama no WhatsApp com tudo já respondido.</p></div>
+<div><span class="ey">5 perguntas</span>
+<h2 class="h2">Descubra o que combina com você.</h2>
+<p class="lead">Leva 30 segundos. No final, você me manda as respostas no WhatsApp e eu preparo o seu orçamento.</p></div>
 <div class="q"><div class="bar"><i id="bar"></i></div><div id="qb"><noscript><a class="b b1" href="https://wa.me/5551992814761">Falar no WhatsApp</a></noscript></div></div>
 </div></section>
 
@@ -270,13 +295,13 @@ footer a:hover{color:var(--tx)}
 <div><span class="ey">Sobre mim</span>
 <h2 class="h2">Prazer, eu sou a Vitória.</h2>
 <p>Tenho 24 anos, sou formada em Marketing e trabalho na área há seis anos. É o que faz meus olhos brilharem.</p>
-<p>Amo entender como as coisas funcionam por dentro. Estudei a fundo como criar sites e agora uso isso pra fazer o seu perfil <b>trabalhar por você o dia inteiro.</b></p></div>
+<p>Amo entender como as coisas funcionam por dentro. Comecei criando sites e hoje também desenvolvo sistemas que <b>tiram o trabalho repetitivo do seu dia a dia.</b></p></div>
 </div></section>
 
 <section class="end"><div class="w">
-<span class="ey">Bora?</span>
-<h2 class="h2">Seu perfil merece contar a <span class="ac">história inteira.</span></h2>
-<div class="cta"><a class="b b1" href="#quiz">Fazer o quiz</a><a class="b bw" data-wa href="https://wa.me/5551992814761" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Falar no WhatsApp</a></div>
+<span class="ey">Vamos conversar?</span>
+<h2 class="h2">Me conta como o seu negócio <span class="ac">funciona hoje.</span></h2>
+<div class="cta"><a class="b b1" href="#quiz">Montar meu orçamento</a><a class="b bw" data-wa href="https://wa.me/5551992814761" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Falar no WhatsApp</a></div>
 </div></section>
 </main>
 
@@ -289,10 +314,11 @@ footer a:hover{color:var(--tx)}
 
 <script>
 (function(){
-var N="5551992814761",D="Fala, Vica! Eu vim pelo teu perfil do Instagram. Quero conhecer mais do teu trabalho!";
+var N="5551992814761",D="Oi, Vica! Vim pelo teu site e quero conversar sobre um projeto.";
 function wa(t){return"https://wa.me/"+N+"?text="+encodeURIComponent(t)}
 document.querySelectorAll("[data-wa]").forEach(function(a){a.href=wa(a.dataset.wa||D)});
 var Q=[
+{q:"O que você precisa?",o:[["Um site pra mostrar meu trabalho"],["Site com agendamento online"],["Um sistema pro meu negócio","pedidos, cadastros, organização…"],["Ainda não sei"]]},
 {q:"Qual é a sua área?",o:[["Saúde e bem-estar","médico, dentista, psicólogo, terapeuta…"],["Direito e consultoria"],["Beleza e estética"],["Alimentação e comércio"],["Outra área"]]},
 {q:"O que tem hoje no seu link da bio?",o:[["Só o link do WhatsApp"],["Um PDF ou página do Canva"],["Um link genérico com vários botões"],["Ainda não tenho link"]]},
 {q:"Você já tem textos e fotos prontos?",o:[["Sim, tenho um PDF pronto","vou te enviar do jeito que quero"],["Tenho fotos e ideias soltas","preciso que você monte"],["Ainda não tenho nada","preciso de ajuda do começo"]]},
@@ -314,11 +340,13 @@ if(ev.target.closest(".back")){i--;r()}
 if(ev.target.closest(".redo")){a=[];i=0;r()}});
 function res(){
 bar.style.width="100%";
-var p1=a[2]===0,pr=p1?"R$ 197":"R$ 247",nm=p1?"Opção 1 · Você manda um PDF pronto":"Opção 2 · Eu monto tudo pra você";
+var nm=a[0]===1?"Sistema sob medida · site com agendamento online":a[0]===2?"Sistema sob medida · site com um sistema pro seu negócio":a[3]===0?"Portfólio Inteligente · a partir do seu PDF":"Portfólio Inteligente · eu monto tudo pra você";
 var t=Q.map(function(q,k){return q.o[a[k]][0]});
-var m="Oi, Vica! Respondi o quiz no teu site.\n\nÁrea: "+t[0]+"\nLink da bio hoje: "+t[1]+"\nMaterial: "+t[2]+"\nDomínio: "+t[3]+"\n\nCombinou a "+nm.split(" · ")[0]+" ("+pr+"). Quero conversar sobre o meu Portfólio Inteligente!";
-B.innerHTML='<div class="fade res"><span class="qn">Resultado</span><h3>Essa é a sua cara</h3><div class="rec"><small>Recomendação</small><strong>'+nm+'</strong><div class="pr">'+pr+'</div></div><a class="b bw" href="'+wa(m)+'" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Mandar no WhatsApp</a><button class="back redo">↺ Refazer</button></div>'}
+var m="Oi, Vica! Respondi o quiz no teu site.\n\nPreciso de: "+t[0]+"\nÁrea: "+t[1]+"\nLink da bio hoje: "+t[2]+"\nMaterial: "+t[3]+"\nDomínio: "+t[4]+"\n\nCombinou: "+nm+". Quero um orçamento!";
+B.innerHTML='<div class="fade res"><span class="qn">Resultado</span><h3>Essa é a sua cara</h3><div class="rec"><small>Recomendação</small><strong>'+nm+'</strong><p>Valores e prazo eu te passo no WhatsApp, de acordo com o que você precisa.</p></div><a class="b bw" href="'+wa(m)+'" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Mandar no WhatsApp</a><button class="back redo">↺ Refazer</button></div>'}
 r();
+var fab=document.querySelector(".fab"),hero=document.querySelector(".hero");
+if("IntersectionObserver"in window){fab.classList.add("off");new IntersectionObserver(function(en){fab.classList.toggle("off",en[0].isIntersecting)}).observe(hero)}
 })();
 </script>
 </body>
