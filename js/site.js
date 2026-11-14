@@ -96,11 +96,11 @@
             ]
         },
         {
-            pergunta: "Quer um endereço próprio?",
+            pergunta: "Você já tem um domínio?",
             rotulo: "Domínio",
             respostas: [
-                { texto: "Sim, quero domínio próprio", detalhe: "tipo www.seunome.com.br" },
-                { texto: "Por enquanto, o link padrão" },
+                { texto: "Sim, já tenho", detalhe: "tipo www.seunome.com.br" },
+                { texto: "Ainda não, preciso registrar um" },
                 { texto: "Quero entender melhor" }
             ]
         }
