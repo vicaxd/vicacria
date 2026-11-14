@@ -1,0 +1,1035 @@
+/* ==========================================================================
+   vicacria · visual do site
+   Ordem: 1. fonte e cores · 2. base · 3. peças comuns · 4. uma parte por
+   seção, na mesma ordem da página · 5. ajustes de celular e de movimento
+   ========================================================================== */
+
+
+/* 1. Fonte e cores
+   -------------------------------------------------------------------------- */
+
+@font-face {
+    font-family: "Outfit";
+    font-weight: 400 700;
+    font-display: swap;
+    src: url(../fonts/outfit-latin.woff2) format("woff2");
+}
+
+:root {
+    color-scheme: dark;
+
+    --bg: #0e0d0b;                      /* fundo */
+    --s1: #16140f;                      /* fundo das caixas */
+    --s2: #1e1b14;                      /* fundo de detalhes */
+    --line: rgba(255, 240, 200, .09);   /* linhas finas */
+    --tx: #f4efe2;                      /* texto */
+    --mu: #a59e8a;                      /* texto apagado */
+    --ac: #f9dc7c;                      /* amarelo da marca */
+    --ac2: #ffe9a3;                     /* amarelo mais claro */
+    --wa: #25d366;                      /* verde do WhatsApp */
+    --r: 22px;                          /* arredondamento das caixas */
+}
+
+
+/* 2. Base
+   -------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 72px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--tx);
+    font: 400 17px/1.55 "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+h1,
+h2,
+h3,
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    line-height: 1.02;
+    letter-spacing: -.03em;
+    text-wrap: balance;
+}
+
+:focus-visible {
+    outline: 2px solid var(--ac);
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+
+/* 3. Peças comuns
+   -------------------------------------------------------------------------- */
+
+/* largura máxima do conteúdo */
+.w {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 96px 0;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 800px;
+}
+
+/* seção com fundo um pouco mais claro */
+.alt {
+    background: var(--s1);
+    border-block: 1px solid var(--line);
+}
+
+/* texto pequeno amarelo acima dos títulos */
+.ey {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ac);
+}
+
+.ey::before {
+    content: "";
+    width: 18px;
+    height: 1px;
+    background: currentColor;
+}
+
+.h2 {
+    font-size: clamp(34px, 6vw, 60px);
+    margin-top: 16px;
+    max-width: 16ch;
+}
+
+.lead {
+    color: var(--mu);
+    font-size: 18px;
+    margin-top: 16px;
+    max-width: 46ch;
+}
+
+.ac {
+    color: var(--ac);
+}
+
+.fine {
+    color: var(--mu);
+    font-size: 14px;
+    margin-top: 14px;
+}
+
+/* lista com o "check" amarelo */
+.check {
+    list-style: none;
+    padding: 0;
+    margin: 22px 0 28px;
+    display: grid;
+    gap: 10px;
+    color: var(--mu);
+}
+
+.check li {
+    display: flex;
+    gap: 10px;
+}
+
+.check li::before {
+    content: "";
+    flex: none;
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    border-radius: 50%;
+    background: rgba(249, 220, 124, .14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f9dc7c' stroke-width='3'%3E%3Cpath d='m6 12 4 4 8-8'/%3E%3C/svg%3E") center / 12px no-repeat;
+}
+
+/* botões */
+.b {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 0 26px;
+    border: 0;
+    border-radius: 999px;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .2s, background .2s, border-color .2s;
+}
+
+.b:hover {
+    transform: translateY(-2px);
+}
+
+.b svg {
+    width: 20px;
+    height: 20px;
+    flex: none;
+}
+
+.b1 {                                 /* amarelo */
+    background: var(--ac);
+    color: #1a1405;
+}
+
+.b1:hover {
+    background: var(--ac2);
+}
+
+.b2 {                                 /* contorno */
+    background: transparent;
+    color: var(--tx);
+    border: 1px solid var(--line);
+}
+
+.b2:hover {
+    border-color: rgba(255, 240, 200, .3);
+}
+
+.bw {                                 /* verde do WhatsApp */
+    background: var(--wa);
+    color: #05210f;
+}
+
+/* grupo de botões */
+.cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 36px;
+}
+
+
+/* 4. Seções, na ordem da página
+   -------------------------------------------------------------------------- */
+
+/* --- Topo fixo --- */
+
+.top {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(14, 13, 11, .78);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+}
+
+.top .w {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    height: 64px;
+}
+
+.top .b {
+    min-height: 40px;
+    padding: 0 18px;
+    font-size: 14px;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 21px;
+    font-weight: 700;
+    letter-spacing: -.04em;
+}
+
+.logo svg {
+    width: 30px;
+    height: 30px;
+    flex: none;
+}
+
+.logo i {
+    font-style: normal;
+    color: var(--ac);
+}
+
+.nav {
+    display: none;
+    gap: 28px;
+    font-size: 15px;
+    color: var(--mu);
+}
+
+.nav a:hover {
+    color: var(--tx);
+}
+
+@media (min-width: 820px) {
+    .nav {
+        display: flex;
+    }
+}
+
+
+/* --- Abertura (hero) --- */
+
+.hero {
+    position: relative;
+    padding: 88px 0 72px;
+    content-visibility: visible;
+    overflow: hidden;
+}
+
+/* brilho amarelo no canto */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: -30% -10% auto auto;
+    width: 70vw;
+    max-width: 820px;
+    aspect-ratio: 1;
+    background: radial-gradient(closest-side, rgba(249, 220, 124, .16), transparent);
+    pointer-events: none;
+}
+
+.hero .w {
+    position: relative;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 10.5vw, 112px);
+    margin-top: 28px;
+    max-width: 12ch;
+}
+
+.hero h1 em {
+    font-style: normal;
+    color: var(--ac);
+}
+
+.hero .lead {
+    font-size: clamp(18px, 2.2vw, 21px);
+}
+
+/* quadro com os 3 destaques */
+.facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin-top: 64px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    overflow: hidden;
+}
+
+.facts div {
+    background: var(--bg);
+    padding: 20px;
+}
+
+.facts span {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--mu);
+    font-size: 14px;
+}
+
+.facts b {
+    display: block;
+    font-size: clamp(20px, 3vw, 28px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+}
+
+
+/* --- Trabalhos (antes e depois) --- */
+
+.grid3 {
+    display: grid;
+    gap: 16px;
+    margin-top: 48px;
+}
+
+@media (min-width: 860px) {
+    .grid3 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    background: var(--s1);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+    overflow: hidden;
+    transition: border-color .25s, transform .25s;
+}
+
+.card:hover {
+    border-color: rgba(249, 220, 124, .35);
+    transform: translateY(-4px);
+}
+
+.shot {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 14px 14px 0;
+    background: #0b0e13;
+}
+
+.shot img {
+    width: 100%;
+    aspect-ratio: 2.2 / 1;
+    object-fit: contain;
+    border-radius: 10px 10px 0 0;
+}
+
+.tag {
+    align-self: flex-start;
+    padding: 5px 10px;
+    border-radius: 999px;
+    background: rgba(255, 240, 200, .08);
+    color: var(--mu);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .12em;
+}
+
+.card .in {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 6px;
+    padding: 22px;
+}
+
+.card small {
+    color: var(--ac);
+    font-size: 14px;
+}
+
+.card h3 {
+    font-size: 24px;
+}
+
+.card p {
+    flex: 1;
+    color: var(--mu);
+    font-size: 15px;
+}
+
+.go {
+    display: inline-flex;
+    gap: 6px;
+    margin-top: 14px;
+    color: var(--ac);
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+/* --- Sistemas sob medida --- */
+
+.sys {
+    display: grid;
+    align-items: center;
+    gap: 44px;
+    margin-top: 48px;
+}
+
+@media (min-width: 900px) {
+    .sys {
+        grid-template-columns: 1fr 1.15fr;
+        gap: 56px;
+    }
+}
+
+.sys small {
+    color: var(--ac);
+    font-size: 14px;
+}
+
+.sys h3 {
+    font-size: clamp(26px, 3.4vw, 34px);
+    margin-top: 6px;
+}
+
+.sys .check {
+    gap: 12px;
+    font-size: 16px;
+}
+
+.sys .fine {
+    margin-top: 16px;
+}
+
+/* fotos do painel e do celular, uma por cima da outra */
+.vis {
+    position: relative;
+    padding-bottom: 14%;
+}
+
+.vis img {
+    border: 1px solid var(--line);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+}
+
+.vis .pc {
+    width: 88%;
+    border-radius: 14px;
+}
+
+.vis .cel {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 34%;
+    border: 5px solid #050505;
+    border-radius: 22px;
+}
+
+
+/* --- Como funciona (3 passos) --- */
+
+.steps {
+    display: grid;
+    gap: 16px;
+    margin-top: 48px;
+    counter-reset: passo;
+}
+
+@media (min-width: 860px) {
+    .steps {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.st {
+    padding: 28px;
+    border-top: 1px solid var(--line);
+}
+
+/* número 01, 02, 03 */
+.st::before {
+    counter-increment: passo;
+    content: "0" counter(passo);
+    display: block;
+    margin-bottom: 28px;
+    color: var(--ac);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.st h3 {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.st p {
+    color: var(--mu);
+    font-size: 16px;
+}
+
+
+/* --- O que inclui --- */
+
+.plans {
+    display: grid;
+    gap: 16px;
+    margin-top: 48px;
+}
+
+@media (min-width: 820px) {
+    .plans {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.pl {
+    position: relative;
+    padding: 32px 28px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+}
+
+/* opção em destaque */
+.pl.hi {
+    border-color: rgba(249, 220, 124, .5);
+    background: linear-gradient(180deg, rgba(249, 220, 124, .08), transparent 60%), var(--bg);
+}
+
+.pl .badge {
+    position: absolute;
+    top: -12px;
+    right: 24px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: var(--ac);
+    color: #1a1405;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.pl .k {
+    color: var(--mu);
+    font-size: 14px;
+}
+
+.pl h3 {
+    font-size: 26px;
+    margin: 6px 0 18px;
+}
+
+.pl .ds {
+    margin-top: -8px;
+    color: var(--mu);
+    font-size: 16px;
+}
+
+.pl .b {
+    width: 100%;
+}
+
+/* caixas de suporte e endereço */
+.extra {
+    display: grid;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+@media (min-width: 820px) {
+    .extra {
+        grid-template-columns: 1.4fr 1fr;
+    }
+}
+
+.box {
+    padding: 26px 28px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: var(--r);
+}
+
+.box h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.rows {
+    display: grid;
+}
+
+.rows div {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 11px 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--mu);
+    font-size: 15px;
+}
+
+.rows div:last-child {
+    border: 0;
+}
+
+.rows b {
+    color: var(--tx);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.dom {
+    display: grid;
+    gap: 10px;
+}
+
+.dom div {
+    padding: 14px 16px;
+    border-radius: 14px;
+    background: var(--s2);
+}
+
+.dom small {
+    display: block;
+    color: var(--mu);
+    font-size: 13px;
+}
+
+.dom code {
+    font: 600 15px/1.4 "Outfit", sans-serif;
+    word-break: break-all;
+}
+
+.dom .y code {
+    color: var(--ac);
+}
+
+
+/* --- Quiz --- */
+
+.qz {
+    display: grid;
+    align-items: start;
+    gap: 40px;
+}
+
+@media (min-width: 900px) {
+    .qz {
+        grid-template-columns: 1fr 1.1fr;
+        gap: 64px;
+    }
+}
+
+.q {
+    min-height: 440px;
+    padding: 28px;
+    background: var(--s1);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+}
+
+/* barra de progresso */
+.bar {
+    height: 3px;
+    margin-bottom: 28px;
+    background: var(--s2);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.bar i {
+    display: block;
+    width: 0;
+    height: 100%;
+    background: var(--ac);
+    transition: width .4s;
+}
+
+.qn {
+    color: var(--mu);
+    font-size: 13px;
+}
+
+.q h3 {
+    font-size: 28px;
+    margin: 8px 0 22px;
+}
+
+/* opções de resposta */
+.op {
+    display: grid;
+    gap: 8px;
+}
+
+.o {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 14px 16px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    color: var(--tx);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+}
+
+.o:hover {
+    border-color: rgba(249, 220, 124, .4);
+}
+
+.o.on {
+    border-color: var(--ac);
+    background: rgba(249, 220, 124, .08);
+}
+
+/* letra A, B, C… */
+.o b {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    background: var(--s2);
+    color: var(--mu);
+    font-size: 13px;
+}
+
+.o small {
+    display: block;
+    color: var(--mu);
+    font-size: 14px;
+}
+
+.back {
+    margin-top: 16px;
+    padding: 4px 0;
+    background: 0;
+    border: 0;
+    color: var(--mu);
+    font: inherit;
+    cursor: pointer;
+}
+
+.back:hover {
+    color: var(--tx);
+}
+
+/* resultado */
+.res .rec {
+    margin: 4px 0 20px;
+    padding: 20px;
+    border: 1px solid rgba(249, 220, 124, .3);
+    border-radius: 18px;
+    background: rgba(249, 220, 124, .08);
+}
+
+.res .rec small {
+    color: var(--ac);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.res .rec strong {
+    display: block;
+    margin: 4px 0;
+    font-size: 20px;
+}
+
+.res .rec p {
+    color: var(--mu);
+    font-size: 15px;
+}
+
+.res .b {
+    width: 100%;
+}
+
+/* entrada suave de cada pergunta */
+.fade {
+    animation: aparecer .35s ease both;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+}
+
+
+/* --- Sobre mim --- */
+
+.me {
+    display: grid;
+    align-items: center;
+    gap: 40px;
+}
+
+@media (min-width: 860px) {
+    .me {
+        grid-template-columns: 400px 1fr;
+        gap: 72px;
+    }
+}
+
+.ph {
+    max-width: 400px;
+    aspect-ratio: 4 / 5;
+    border-radius: 28px;
+    background: var(--s1);
+    overflow: hidden;
+}
+
+.ph img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.me p {
+    max-width: 52ch;
+    margin-top: 18px;
+    color: var(--mu);
+}
+
+.me p b {
+    color: var(--tx);
+    font-weight: 500;
+}
+
+
+/* --- Chamada final --- */
+
+.end {
+    padding: 120px 0;
+    text-align: center;
+}
+
+.end .h2 {
+    max-width: 14ch;
+    margin: 16px auto 0;
+}
+
+.end .cta {
+    justify-content: center;
+}
+
+
+/* --- Rodapé --- */
+
+footer {
+    padding: 40px 0 calc(40px + env(safe-area-inset-bottom, 0px));
+    border-top: 1px solid var(--line);
+    color: var(--mu);
+    font-size: 15px;
+}
+
+footer .w {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+footer nav {
+    display: flex;
+    gap: 22px;
+}
+
+footer a:hover {
+    color: var(--tx);
+}
+
+
+/* --- Botão flutuante do WhatsApp --- */
+
+.fab {
+    position: fixed;
+    right: 18px;
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    z-index: 30;
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--wa);
+    color: #05210f;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .4);
+    transition: transform .25s, opacity .25s;
+}
+
+.fab:hover {
+    transform: scale(1.06);
+}
+
+.fab svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* escondido enquanto a abertura do site está na tela */
+.fab.off {
+    opacity: 0;
+    transform: translateY(16px) scale(.9);
+    pointer-events: none;
+}
+
+
+/* 5. Ajustes de celular e de movimento
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 560px) {
+    section {
+        padding: 64px 0;
+    }
+
+    .hero {
+        padding: 56px 0 40px;
+    }
+
+    #trabalhos {
+        padding-top: 24px;
+    }
+
+    .cta .b {
+        flex: 1 1 100%;
+    }
+
+    .facts {
+        margin-top: 40px;
+    }
+
+    .facts div {
+        padding: 14px 10px;
+        text-align: center;
+    }
+
+    .facts span {
+        margin-bottom: 2px;
+        font-size: 12px;
+        line-height: 1.3;
+    }
+
+    .facts b {
+        font-size: 20px;
+    }
+}
+
+/* quem pediu menos animação no celular/computador */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
