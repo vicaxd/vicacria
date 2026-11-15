@@ -98,47 +98,50 @@
                     <span class="ey">Trabalhos</span>
                     <h2 class="h2">Alguns sites que eu fiz.</h2>
 
-                    <div class="grid3">
+                    <p class="lead">Cada um com a cara do próprio negócio. Toque no nome pra ver o site funcionando.</p>
 
-                        <a class="card" href="https://vicaxd.github.io/utopia-art/" target="_blank" rel="noopener">
-                            <div class="shot">
-                                <span class="tag">LINK NA BIO</span>
-                                <img src="img/antes-utopia-art.webp" alt="Perfil @amanda.utopiart com o site no link da bio" width="840" height="373" loading="lazy" decoding="async">
-                            </div>
-                            <div class="in">
-                                <small>@amanda.utopiart</small>
-                                <h3>Utopia Art</h3>
-                                <p>Portfólio de arte. A apresentação em PDF virou um site.</p>
-                                <span class="go">Ver o site ↗</span>
-                            </div>
-                        </a>
+                    <div class="vitrine" data-vitrine>
 
-                        <a class="card" href="https://camaraonacaixa.com.br/" target="_blank" rel="noopener">
-                            <div class="shot">
-                                <span class="tag">LINK NA BIO</span>
-                                <img src="img/antes-camarao-na-caixa.webp" alt="Perfil @camaraonacaixa_ com o site no link da bio" width="840" height="378" loading="lazy" decoding="async">
+                        <!-- celular com o vídeo do site escolhido -->
+                        <div class="celular">
+                            <div class="tela">
+                                <video src="video/utopia.mp4" poster="video/utopia.webp" width="390" height="844"
+                                       muted loop playsinline preload="none" aria-label="Vídeo do site da Utopia Art no celular"></video>
                             </div>
-                            <div class="in">
-                                <small>@camaraonacaixa_</small>
-                                <h3>Camarão na Caixa</h3>
-                                <p>Cardápio de delivery com WhatsApp e iFood num link só, com domínio próprio.</p>
-                                <span class="go">Ver o site ↗</span>
-                            </div>
-                        </a>
+                        </div>
 
-                        <a class="card" href="http://attiajulia.com.br/" target="_blank" rel="noopener">
-                            <div class="shot">
-                                <span class="tag">LINK NA BIO</span>
-                                <img src="img/antes-julia-santos.webp" alt="Perfil @at.tiajulia com o site no link da bio" width="840" height="354" loading="lazy" decoding="async">
-                            </div>
-                            <div class="in">
-                                <small>@at.tiajulia</small>
-                                <h3>Julia Santos</h3>
-                                <p>Do WhatsApp pra uma apresentação completa, com domínio próprio.</p>
-                                <span class="go">Ver o site ↗</span>
-                            </div>
-                        </a>
+                        <div class="vitrine-info">
 
+                            <!-- botões com o nome de cada site -->
+                            <div class="abas" role="tablist" aria-label="Sites que eu fiz">
+                                <button role="tab" id="aba-utopia" aria-controls="painel-utopia" aria-selected="true"
+                                        data-video="utopia" data-nome="do site da Utopia Art no celular">Utopia Art</button>
+                                <button role="tab" id="aba-camarao" aria-controls="painel-camarao" aria-selected="false" tabindex="-1"
+                                        data-video="camarao" data-nome="do cardápio do Camarão na Caixa no celular">Camarão</button>
+                                <button role="tab" id="aba-julia" aria-controls="painel-julia" aria-selected="false" tabindex="-1"
+                                        data-video="julia" data-nome="do site da Julia Santos no celular">Julia</button>
+                            </div>
+
+                            <!-- texto de cada site -->
+                            <div class="painel" role="tabpanel" id="painel-utopia" aria-labelledby="aba-utopia">
+                                <small>@amanda.utopiart · portfólio de arte</small>
+                                <p>Roxo profundo e as obras da artista em destaque. A apresentação em PDF virou um portfólio que convida pra eventos e oficinas.</p>
+                                <a class="go" href="https://vicaxd.github.io/utopia-art/" target="_blank" rel="noopener">Ver o site ↗</a>
+                            </div>
+
+                            <div class="painel" role="tabpanel" id="painel-camarao" aria-labelledby="aba-camarao" hidden>
+                                <small>@camaraonacaixa_ · cardápio de delivery</small>
+                                <p>Cardápio com fotos, preços e pedido pelo WhatsApp ou iFood, nas cores da marca e com o mascote em todo canto. Domínio próprio.</p>
+                                <a class="go" href="https://camaraonacaixa.com.br/" target="_blank" rel="noopener">Ver o site ↗</a>
+                            </div>
+
+                            <div class="painel" role="tabpanel" id="painel-julia" aria-labelledby="aba-julia" hidden>
+                                <small>@at.tiajulia · atendente terapêutica</small>
+                                <p>Tons claros e acolhedores pra quem cuida de crianças. Explica como ela trabalha e leva direto pro contato. Domínio próprio.</p>
+                                <a class="go" href="http://attiajulia.com.br/" target="_blank" rel="noopener">Ver o site ↗</a>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </section>
@@ -170,9 +173,31 @@
                             <p class="fine">O agendamento é um exemplo. Se o seu negócio precisa de algo diferente, a gente estuda junto qual sistema faz sentido pra você. Me conta como funciona o seu dia a dia.</p>
                         </div>
 
-                        <div class="vis">
-                            <img class="pc" src="img/sistema-agenda.webp" alt="Painel da Amanda com a agenda da semana, cada procedimento numa cor" width="1400" height="831" loading="lazy" decoding="async">
-                            <img class="cel" src="img/sistema-horarios.webp" alt="Tela da cliente escolhendo dia e horário pelo celular" width="600" height="924" loading="lazy" decoding="async">
+                        <!-- celular com as duas telas do sistema (dados de exemplo) -->
+                        <div class="vitrine-coluna" data-vitrine>
+                            <div class="celular">
+                                <div class="tela">
+                                    <video src="video/sistema-cliente.mp4" poster="video/sistema-cliente.webp" width="390" height="844"
+                                           muted loop playsinline preload="none" aria-label="Vídeo da cliente marcando um horário no site da Amanda"></video>
+                                </div>
+                            </div>
+
+                            <div class="abas" role="tablist" aria-label="Telas do sistema">
+                                <button role="tab" id="aba-cliente" aria-controls="painel-cliente" aria-selected="true"
+                                        data-video="sistema-cliente" data-nome="da cliente marcando um horário no site da Amanda">Site da cliente</button>
+                                <button role="tab" id="aba-amanda" aria-controls="painel-amanda" aria-selected="false" tabindex="-1"
+                                        data-video="sistema-painel" data-nome="do painel da Amanda com os pedidos e a agenda">Painel da Amanda</button>
+                            </div>
+
+                            <div class="painel" role="tabpanel" id="painel-cliente" aria-labelledby="aba-cliente">
+                                <p>A cliente vê o site, escolhe a técnica, o dia e um horário livre, e reserva em poucos toques.</p>
+                            </div>
+
+                            <div class="painel" role="tabpanel" id="painel-amanda" aria-labelledby="aba-amanda" hidden>
+                                <p>A Amanda recebe o pedido, confirma ou sugere outro horário, e vê a semana numa agenda colorida.</p>
+                            </div>
+
+                            <p class="exemplo">Vídeos com dados de exemplo.</p>
                         </div>
                     </div>
                 </div>

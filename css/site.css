@@ -394,88 +394,155 @@ section {
 }
 
 
-/* --- Trabalhos (antes e depois) --- */
+/* --- Trabalhos (celular com botões pra cada site) --- */
 
-.grid3 {
+.vitrine {
     display: grid;
-    gap: 16px;
+    justify-items: center;
+    gap: 36px;
     margin-top: 48px;
 }
 
 @media (min-width: 860px) {
-    .grid3 {
-        grid-template-columns: repeat(3, 1fr);
+    .vitrine {
+        grid-template-columns: auto minmax(0, 460px);
+        justify-content: center;
+        align-items: center;
+        justify-items: start;
+        gap: 80px;
     }
 }
 
-.card {
-    display: flex;
-    flex-direction: column;
-    background: var(--s1);
-    border: 1px solid var(--line);
-    border-radius: var(--r);
-    overflow: hidden;
-    transition: border-color .25s, transform .25s;
+/* desenho do celular */
+.celular {
+    position: relative;
+    width: min(300px, 78vw);
+    aspect-ratio: 390 / 844;
+    padding: 10px;
+    border-radius: 48px;
+    background: linear-gradient(160deg, #3a362c, #12110d 40%, #24211a);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 240, 200, .18),   /* aro de fora */
+        inset 0 0 0 4px #050505,                    /* borda preta da tela */
+        0 40px 80px rgba(0, 0, 0, .55),
+        0 0 120px rgba(249, 220, 124, .08);         /* brilho amarelo bem leve */
 }
 
-.card:hover {
-    border-color: rgba(249, 220, 124, .35);
-    transform: translateY(-4px);
-}
-
-.shot {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 14px 14px 0;
-    background: #0b0e13;
-}
-
-.shot img {
-    width: 100%;
-    aspect-ratio: 2.2 / 1;
-    object-fit: contain;
-    border-radius: 10px 10px 0 0;
-}
-
-.tag {
-    align-self: flex-start;
-    padding: 5px 10px;
+/* "ilha" preta no topo da tela */
+.celular::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    z-index: 2;
+    width: 30%;
+    height: 22px;
     border-radius: 999px;
-    background: rgba(255, 240, 200, .08);
-    color: var(--mu);
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .12em;
+    background: #050505;
+    transform: translateX(-50%);
 }
 
-.card .in {
+/* tela: faixa preta em cima (onde fica a ilha) e o vídeo embaixo */
+.tela {
     display: flex;
     flex-direction: column;
-    flex: 1;
-    gap: 6px;
-    padding: 22px;
+    height: 100%;
+    padding-top: 36px;
+    border-radius: 38px;
+    background: #000;
+    overflow: hidden;
 }
 
-.card small {
+.tela video {
+    display: block;
+    flex: 1;
+    width: 100%;
+    min-height: 0;
+    object-fit: cover;
+    object-position: top;
+    background: #16140f;
+    transition: opacity .25s;
+}
+
+/* some rapidinho enquanto troca de site */
+.tela video.trocando {
+    opacity: 0;
+}
+
+.vitrine-info {
+    width: 100%;
+    max-width: 460px;
+    text-align: center;
+}
+
+@media (min-width: 860px) {
+    .vitrine-info {
+        text-align: left;
+    }
+}
+
+/* botões com o nome de cada site */
+.abas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+@media (min-width: 860px) {
+    .abas {
+        justify-content: flex-start;
+    }
+}
+
+.abas button {
+    padding: 9px 16px;
+    border: 1px solid rgba(255, 240, 200, .16);
+    border-radius: 999px;
+    background: rgba(255, 240, 200, .06);
+    color: var(--mu);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+    cursor: pointer;
+    -webkit-backdrop-filter: blur(14px) saturate(170%);
+    backdrop-filter: blur(14px) saturate(170%);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .1);
+    transition: background .2s, color .2s, border-color .2s;
+}
+
+.abas button:hover {
+    color: var(--tx);
+    border-color: rgba(255, 240, 200, .3);
+}
+
+/* botão escolhido */
+.abas button[aria-selected="true"] {
+    background: var(--tx);
+    border-color: var(--tx);
+    color: #1a1405;
+}
+
+.painel {
+    margin-top: 24px;
+}
+
+.painel small {
     color: var(--ac);
     font-size: 14px;
 }
 
-.card h3 {
-    font-size: 24px;
-}
-
-.card p {
-    flex: 1;
+.painel p {
+    margin-top: 8px;
     color: var(--mu);
-    font-size: 15px;
+    font-size: 17px;
 }
 
 .go {
     display: inline-flex;
     gap: 6px;
-    margin-top: 14px;
+    margin-top: 16px;
     color: var(--ac);
     font-size: 15px;
     font-weight: 600;
@@ -517,29 +584,27 @@ section {
     margin-top: 16px;
 }
 
-/* fotos do painel e do celular, uma por cima da outra */
-.vis {
-    position: relative;
-    padding-bottom: 14%;
+/* celular com as duas telas do sistema */
+.vitrine-coluna {
+    display: grid;
+    justify-items: center;
+    gap: 24px;
+    text-align: center;
 }
 
-.vis img {
-    border: 1px solid var(--line);
-    box-shadow: 0 24px 60px rgba(0, 0, 0, .45);
+.vitrine-coluna .painel {
+    max-width: 380px;
+    margin-top: 0;
 }
 
-.vis .pc {
-    width: 88%;
-    border-radius: 14px;
+.vitrine-coluna .painel p {
+    margin-top: 0;
 }
 
-.vis .cel {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    width: 34%;
-    border: 5px solid #050505;
-    border-radius: 22px;
+.exemplo {
+    color: var(--mu);
+    font-size: 12px;
+    opacity: .7;
 }
 
 

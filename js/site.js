@@ -4,6 +4,7 @@
    2. Botões do WhatsApp
    3. Quiz
    4. Botão flutuante
+   5. Celulares com botões (Trabalhos e Sistemas)
    ========================================================================== */
 
 (function () {
@@ -229,4 +230,66 @@
             flutuante.classList.toggle("off", itens[0].isIntersecting);
         }).observe(abertura);
     }
+
+
+    /* 5. Celulares com botões (Trabalhos e Sistemas)
+       ------------------------------------------------------------------------
+       Cada bloco marcado com data-vitrine tem um celular com vídeo e botões.
+       Tocar num botão troca o vídeo do celular e o texto de baixo.
+       O vídeo só carrega e toca quando o celular aparece na tela.
+       Quem pediu "menos movimento" no celular vê só a imagem parada. */
+
+    var semMovimento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    document.querySelectorAll("[data-vitrine]").forEach(function (bloco) {
+        var video = bloco.querySelector("video");
+        var abas = Array.prototype.slice.call(bloco.querySelectorAll("[role=tab]"));
+        var naTela = false;
+
+        function tocar() {
+            if (naTela && !semMovimento) video.play().catch(function () {});
+        }
+
+        function escolher(aba) {
+            abas.forEach(function (outra) {
+                var escolhida = outra === aba;
+                outra.setAttribute("aria-selected", escolhida);
+                outra.tabIndex = escolhida ? 0 : -1;
+                document.getElementById(outra.getAttribute("aria-controls")).hidden = !escolhida;
+            });
+
+            var nome = aba.dataset.video;
+            video.classList.add("trocando");
+            setTimeout(function () {
+                video.poster = "video/" + nome + ".webp";
+                video.src = "video/" + nome + ".mp4";
+                video.setAttribute("aria-label", "Vídeo " + aba.dataset.nome);
+                video.classList.remove("trocando");
+                tocar();
+            }, 200);
+        }
+
+        abas.forEach(function (aba, n) {
+            aba.addEventListener("click", function () {
+                if (aba.getAttribute("aria-selected") !== "true") escolher(aba);
+            });
+
+            /* setas do teclado passam de um botão pro outro */
+            aba.addEventListener("keydown", function (evento) {
+                var passo = evento.key === "ArrowRight" ? 1 : evento.key === "ArrowLeft" ? -1 : 0;
+                if (!passo) return;
+                var proxima = abas[(n + passo + abas.length) % abas.length];
+                proxima.focus();
+                escolher(proxima);
+            });
+        });
+
+        if ("IntersectionObserver" in window) {
+            new IntersectionObserver(function (itens) {
+                naTela = itens[0].isIntersecting;
+                if (naTela) tocar();
+                else video.pause();
+            }, { threshold: 0.3 }).observe(video);
+        }
+    });
 })();
